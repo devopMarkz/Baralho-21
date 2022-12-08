@@ -35,7 +35,7 @@ public class Player {
 	}
 	
 	public void setInGame (boolean resposta) {
-		this.inGame = resposta;
+		this.inGame = resposta; // Define se o player está ou não no jogo
 	}
 	
 	// Métodos da classe
