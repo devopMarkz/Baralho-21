@@ -9,7 +9,6 @@ public record Game21(Player player1, Player player2) {
 	public void startGame () {
 		// Gere uma rodada nova enquanto um ou dois players estiverem no jogo (inGame = true) e enquanto ambos estiverem com o score abaixo de 21
 		while ((player1.getInGame() == true || player2.getInGame() == true) && (player1.getScore() < 21 && player2.getScore() < 21)) {
-			
 			System.out.println("\t" + player1.getName() + " " + player1.getScore() + " X " + player2.getScore() + " " + player2.getName() + "\n");
 			player1.incrementScore(player1Move());
 			player2.incrementScore(player2Move());
@@ -19,10 +18,9 @@ public record Game21(Player player1, Player player2) {
 	// Exibe o campeão do jogo
 	public void gameWinner () {
 		String gameWinner;
-		if (player1.getScore() == player2.getScore()) gameWinner = "EMPATE!";
-		else if ((21 - player1.getScore() < 21 - player2.getScore()) || (player2.getScore() > 21)) gameWinner = player1.getName();
-		else gameWinner = player2.getName();
-		
+		if ((player1.getScore() == player2.getScore()) || (player1.getScore() > 21 && player2.getScore() > 21)) gameWinner = "EMPATE!";
+		else gameWinner = (21 - player1.getScore() < 21 - player2.getScore()) || (player2.getScore() > 21)? player1.getName() : player2.getName();
+
 		System.out.println("\n********* FIM DO JOGO *********\n\tCAMPEÃO = " + gameWinner + "\n*******************************");
 	}
 	
@@ -49,7 +47,7 @@ public record Game21(Player player1, Player player2) {
 			Random randomLetter = new Random(); // Retorna um número aleatório de 1 a 13
 			Scanner sc = new Scanner (System.in);
 			
-			System.out.print(player2.getName() + ", DESEJA PUXAR UMA CARTA? (SIM/NÃO)");
+			System.out.print(player2.getName() + ", DESEJA PUXAR UMA CARTA? (SIM/NÃO) ");
 			char answer = sc.next().charAt(0);
 			
 			return checkAnswer(player2, answer, randomLetter);
