@@ -3,7 +3,8 @@ package entities;
 public class Player {
 	private String name;
 	private Integer score;
-	
+	private Boolean inGame; // Checa se o jogador ainda está no jogo
+
 	// Construtores da classe
 	
 	public Player () {
@@ -12,6 +13,7 @@ public class Player {
 	public Player(String name) {
 		this.name = name;
 		this.score = 0;
+		this.inGame = true;
 	}
 	
 	// Métodos getters and setters
@@ -26,6 +28,14 @@ public class Player {
 
 	public Integer getScore() {
 		return score;
+	}
+	
+	public Boolean getInGame () {
+		return this.inGame;
+	}
+	
+	public void setInGame (boolean resposta) {
+		this.inGame = resposta;
 	}
 	
 	// Métodos da classe
