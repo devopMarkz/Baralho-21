@@ -48,7 +48,7 @@ public record Game21(Player player1, Player player2) {
 			Scanner sc = new Scanner (System.in);
 			
 			System.out.print(player2.getName() + ", DESEJA PUXAR UMA CARTA? (SIM/NÃO) ");
-			char answer = sc.next().charAt(0);
+			char answer = Character.toLowerCase(sc.next().charAt(0));
 			
 			return checkAnswer(player2, answer, randomLetter);
 		} catch (RuntimeException e) {
