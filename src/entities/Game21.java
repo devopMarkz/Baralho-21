@@ -19,7 +19,7 @@ public record Game21(Player player1, Player player2) {
 	public void gameWinner () {
 		String gameWinner;
 		if ((player1.getScore() == player2.getScore()) || (player1.getScore() > 21 && player2.getScore() > 21)) gameWinner = "EMPATE!";
-		else gameWinner = (21 - player1.getScore() < 21 - player2.getScore()) || (player2.getScore() > 21)? player1.getName() : player2.getName();
+		else gameWinner = (Math.abs(21 - player1.getScore()) < Math.abs(21 - player2.getScore())) || (player2.getScore() > 21)? player1.getName() : player2.getName();
 
 		System.out.println("\n********* FIM DO JOGO *********\n\tCAMPEÃO = " + gameWinner + "\n*******************************");
 	}
